@@ -3,10 +3,6 @@
 Unittest for Airbnb clone command interpreter BaseModel class
 """
 from models.base_model import BaseModel
-import io
-import json
-import os
-import sys
 import unittest
 
 
@@ -16,35 +12,33 @@ class TestBaseModel(unittest.TestCase):
     def test_instantiation(self):
         """Test instantiation of a BaseModel class"""
         a = BaseModel()
-        self.assertIsInstance(a, class)
+        self.assertIs(type(a), BaseModel)
 
     def test_id_assignment(self):
         """Test assignment of UUID is converted to string"""
-        b = BaseModel()
-        self.assertEqual(b.id, uuid.uuid4(b))
+        a = BaseModel()
+        self.assertIsInstance(self.id, str)
     
-    def test_unique_id(self):
-        """Test unique UUID assignment"""
-        c = BaseModel()
-        d = BaseModel()
-        e = BaseModel()
-        f = BaseModel()
-        g = BaseModel()
-        self.assertEqual(c, d, e, f, g)
-
-    def test_datetime(self):
+    def test_created_at(self):
         """Test that datetime is assigned when new instance of BaseModel is created"""
-        h = BaseModel()
-        self.assertEqual(h.created_at, h.save)
+        a = BaseModel()
+        self.assertIsNotNone(self.created_at)
+
+    def test_save(self):
+        """Test that save() saves datetime"""
+        a = BaseModel()
+        self.assertIsNotNone(self.updated_at)
+
+    def test__str__(self):
+        """Test that a string representation is returned"""
+        a = BaseModel()
+        self.assertIsNotNone(self.__str__)
+        self.assertIsInstance(self.__str__, str)
 
     def test_to_dict(self):
-        """Test that to_dict returns a dictionary containing all
-        keys/values of __dict__ of the instance"""
-        i = BaseModel()
-        self.assertIsInstance(h.to_dict, dict)
-
-    def test_to_string(self):
-        """Test that a string representation is returned"""
-        h = BaseModel()
-        self.assertEqual(h.created_at, h.save)
-
+        """Test that to_dict() returns a dictionary containing all
+        keys/values of __dict__ of an instance"""
+        a = BaseModel()
+        self.assertIsNotNone(self.to_dict)
+        self.assertIsInstance(self.to_dict, dict)
+        self.assertIn(self.__class__, self.to_dict)
