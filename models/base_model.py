@@ -21,9 +21,18 @@ class BaseModel():
 
     def __init__(self, *args, **kwargs):
         """Initialize instance random id generation and datetime created"""
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.__dict__.update(kwargs)
+        if len(kwargs) == 0:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.now()
+            self.updated_at = datetime.datetime.now()
+        else:
+            for key, value in kwargs.items():
+                if key in ["created_at", "updated_at"]:
+                    setattr(self, key, datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+                elif key in ["__class__"]:
+                    setattr(self, key, eval(value))
+                else:
+                    setattr(self, key, value)
 
     def __str__(self):
         """A method that returns a string representation"""
@@ -38,9 +47,10 @@ class BaseModel():
         """A method that returns a JSON dictionary
            containing all keys/values of __dict__ of the instance"""
         new_dict = {}
-        self.created_at = datetime.datetime.now().isoformat()
-        self.updated_at = datetime.datetime.now().isoformat()
         for att in self.__dict__:
-            new_dict[att] = getattr(self, att)
+            if att in ["created_at", "updated_at"]:
+                new_dict[att] = getattr(self, att).isoformat()
+            else:
+                new_dict[att] = getattr(self, att)
         new_dict['__class__'] = self.__class__.__name__
         return (new_dict)
