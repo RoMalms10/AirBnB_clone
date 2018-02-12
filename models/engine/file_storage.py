@@ -2,7 +2,6 @@
 """ My module for file storage """
 import json
 import models
-from models.base_model import BaseModel
 import os
 
 
