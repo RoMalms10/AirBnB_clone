@@ -22,10 +22,16 @@ class BaseModel():
 
     def __init__(self, *args, **kwargs):
         """Initialize instance random id generation and datetime created"""
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
         if len(kwargs) == 0:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now()
-            self.updated_at = datetime.datetime.now()
+            self.created_at = datetime.datetime.utcnow()
+            self.updated_at = datetime.datetime.utcnow()
             models.storage.new(self)
         else:
             for key, value in kwargs.items():
@@ -48,7 +54,7 @@ class BaseModel():
 
     def save(self):
         """A method that updates instance datetime"""
-        self.updated_at = datetime.datetime.now()
+        self.updated_at = datetime.datetime.utcnow()
         models.storage.save()
 
     def to_dict(self):
