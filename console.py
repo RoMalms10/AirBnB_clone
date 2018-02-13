@@ -1,7 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ My cmd module """
 import cmd
 import models
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -34,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """ Prints string representation of instance based on name and id """
-        arg = arg.split()
+        arg = shlex.split(arg)
         if len(arg) == 0:
             print ("** class name missing **")
         elif arg[0] not in models.class_dict:
@@ -51,7 +52,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """ Destroys an instance based off name and id """
-        arg = arg.split()
+        arg = shlex.split(arg)
         if len(arg) == 0:
             print ("** class name missing **")
         elif arg[0] not in models.class_dict:
@@ -69,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """ Print all instances of a class (or all intances if no class) """
-        arg = arg.split()
+        arg = shlex.split(arg)
         temp_dict = models.storage.all()
         obj_list = []
         if len(arg) == 0:
@@ -86,7 +87,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """ Update instance """
-        arg = arg.split()
+        arg = shlex.split(arg)
         if len(arg) == 0:
             print("** class name missing **")
         elif arg[0] not in models.class_dict:
@@ -104,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
             else:
                 value = temp_dict.get(key)
-                setattr(value, arg[2], arg[3].strip("\""))
+                setattr(value, arg[2], arg[3])
                 models.storage.save()
 
 if __name__ == '__main__':
