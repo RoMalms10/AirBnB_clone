@@ -30,7 +30,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             a = models.class_dict[arg]()
             models.storage.save()
-            models.storage.reload()
             print(a.id)
 
     def do_show(self, arg):
@@ -65,7 +64,6 @@ class HBNBCommand(cmd.Cmd):
             if key in temp_dict:
                 del temp_dict[key]
                 models.storage.save()
-                models.storage.reload()
             else:
                 print("** no instance found **")
 
@@ -108,7 +106,6 @@ class HBNBCommand(cmd.Cmd):
                 value = temp_dict.get(key)
                 setattr(value, arg[2], arg[3].strip("\""))
                 models.storage.save()
-                models.storage.reload()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
