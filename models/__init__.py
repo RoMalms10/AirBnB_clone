@@ -10,7 +10,7 @@ from .place import Place
 from .amenity import Amenity
 from .review import Review
 
-class_dict = {'BaseModel': BaseModel, 'User': User, 'Review': Review, 'State': State, 'City': City, 'Place': Place, 'Amenity': Amenity, }
+class_dict = {'BaseModel': BaseModel, 'User': User, 'Review': Review, 'State': State, 'City': City, 'Place': Place, 'Amenity': Amenity}
 
 storage = FileStorage()
 storage.reload()
