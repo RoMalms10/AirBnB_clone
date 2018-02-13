@@ -22,12 +22,6 @@ class BaseModel():
 
     def __init__(self, *args, **kwargs):
         """Initialize instance random id generation and datetime created"""
-        from models.user import User
-        from models.state import State
-        from models.city import City
-        from models.amenity import Amenity
-        from models.place import Place
-        from models.review import Review
         if len(kwargs) == 0:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.datetime.utcnow()
@@ -38,7 +32,8 @@ class BaseModel():
                 if key in ["created_at", "updated_at"]:
                     setattr(self, key, datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
                 elif key in ["__class__"]:
-                    setattr(self, key, eval(value))
+                    value = models.class_dict[value]
+                    setattr(self, key, value)
                 else:
                     setattr(self, key, value)
 
