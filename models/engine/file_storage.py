@@ -22,10 +22,11 @@ class FileStorage():
 
     def save(self):
         """ saves all objects into a JSON file """
+        save_dict = {}
         with open(self.__file_storage, mode="w", encoding="UTF-8") as f:
             for key, value in self.__objects.items():
-                self.__objects[key] = value.to_dict()
-            json.dump(self.__objects, f)
+                save_dict[key] = value.to_dict()
+            json.dump(save_dict, f)
 
     def reload(self):
         """ Reloads the JSON from the specified file """
