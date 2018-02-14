@@ -7,7 +7,7 @@ updated, and dictionary instantiation of a BaseModel
     Returns:
         instance dictionary
 """
-import datetime.datetime
+from datetime import datetime
 import json
 import models
 import sys
