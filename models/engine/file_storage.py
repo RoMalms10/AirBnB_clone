@@ -30,7 +30,7 @@ class FileStorage():
 
     def reload(self):
         """ Reloads the JSON from the specified file """
-        if os.path.exists(self.__file_path):
+        if os.path.exists(self.__file_storage):
             with open(self.__file_storage, mode="r", encoding="UTF-8") as f:
                 temp_dict = json.load(f)
             for key, value in temp_dict.items():
