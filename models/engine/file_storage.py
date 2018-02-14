@@ -8,7 +8,7 @@ import os
 class FileStorage():
     """ Class that deals with file storage and loading """
 
-    __file_storage = "file.json"
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
@@ -23,15 +23,15 @@ class FileStorage():
     def save(self):
         """ saves all objects into a JSON file """
         save_dict = {}
-        with open(self.__file_storage, mode="w", encoding="UTF-8") as f:
+        with open(self.__file_path, mode="w", encoding="UTF-8") as f:
             for key, value in self.__objects.items():
                 save_dict[key] = value.to_dict()
             json.dump(save_dict, f)
 
     def reload(self):
         """ Reloads the JSON from the specified file """
-        if os.path.exists(self.__file_storage):
-            with open(self.__file_storage, mode="r", encoding="UTF-8") as f:
+        if os.path.exists(self.__file_path):
+            with open(self.__file_path, mode="r", encoding="UTF-8") as f:
                 temp_dict = json.load(f)
             for key, value in temp_dict.items():
                 univ = value.get('__class__')
