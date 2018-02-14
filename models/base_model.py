@@ -24,6 +24,7 @@ class BaseModel():
             self.created_at = datetime.utcnow()
             self.updated_at = datetime.utcnow()
             models.storage.new(self)
+            models.storage.save()
         else:
             for key, value in kwargs.items():
                 if key in ["created_at", "updated_at"]:
