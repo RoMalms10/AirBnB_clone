@@ -2,7 +2,6 @@
 """ My module for file storage """
 import json
 import models
-import os
 
 
 class FileStorage():
@@ -30,10 +29,12 @@ class FileStorage():
 
     def reload(self):
         """ Reloads the JSON from the specified file """
-        if os.path.isfile(self.__file_storage):
+        try:
             with open(self.__file_storage, mode="r", encoding="UTF-8") as f:
                 temp_dict = json.load(f)
             for key, value in temp_dict.items():
                 univ = value.get('__class__')
                 if univ in models.class_dict:
                     self.__objects[key] = models.class_dict[univ](**value)
+        except FileNotFoundError:
+            pass
