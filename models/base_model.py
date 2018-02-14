@@ -15,12 +15,7 @@ import uuid
 
 
 class BaseModel():
-    """A BaseModel class to serve as the base of all models
-    Attributes:
-        id (string): Randomly generated id in string form
-        created_at (datetime): Time when object was created
-        updated_at (datetime): Time when object was updated
-    """
+    """A BaseModel class to serve as the base of all models """
 
     def __init__(self, *args, **kwargs):
         """Initialize instance random id generation and datetime created"""
@@ -49,6 +44,7 @@ class BaseModel():
     def save(self):
         """A method that updates instance datetime"""
         self.updated_at = datetime.datetime.utcnow()
+        models.storage.new(self)
         models.storage.save()
 
     def to_dict(self):
