@@ -21,9 +21,6 @@ class BaseModel():
         created_at (datetime): Time when object was created
         updated_at (datetime): Time when object was updated
     """
-    id = "None"
-    created_at = None
-    updated_at = None
 
     def __init__(self, *args, **kwargs):
         """Initialize instance random id generation and datetime created"""
