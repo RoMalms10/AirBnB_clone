@@ -15,7 +15,12 @@ import uuid
 
 
 class BaseModel():
-    """A BaseModel class to serve as the base of all models"""
+    """A BaseModel class to serve as the base of all models
+    Attributes:
+        id (string): Randomly generated id in string form
+        created_at (datetime): Time when object was created
+        updated_at (datetime): Time when object was updated
+    """
     id = "None"
     created_at = None
     updated_at = None
