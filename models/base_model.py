@@ -7,7 +7,7 @@ updated, and dictionary instantiation of a BaseModel
     Returns:
         instance dictionary
 """
-import datetime
+import datetime.datetime
 import json
 import models
 import sys
@@ -21,13 +21,14 @@ class BaseModel():
         """Initialize instance random id generation and datetime created"""
         if len(kwargs) == 0:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.utcnow()
-            self.updated_at = datetime.datetime.utcnow()
+            self.created_at = datetime.utcnow()
+            self.updated_at = datetime.utcnow()
             models.storage.new(self)
         else:
             for key, value in kwargs.items():
                 if key in ["created_at", "updated_at"]:
-                    setattr(self, key, datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
+                    setattr(self, key,
+                            datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
                 elif key not in ["__class__"]:
                     setattr(self, key, value)
 
@@ -43,7 +44,7 @@ class BaseModel():
 
     def save(self):
         """A method that updates instance datetime"""
-        self.updated_at = datetime.datetime.utcnow()
+        self.updated_at = datetime.utcnow()
         models.storage.new(self)
         models.storage.save()
 
