@@ -36,10 +36,7 @@ class BaseModel():
             for key, value in kwargs.items():
                 if key in ["created_at", "updated_at"]:
                     setattr(self, key, datetime.datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f"))
-                elif key in ["__class__"]:
-                    value = models.class_dict[value]
-                    setattr(self, key, value)
-                else:
+                elif key not in ["__class__"]:
                     setattr(self, key, value)
 
     def __str__(self):
