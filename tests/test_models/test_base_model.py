@@ -22,16 +22,24 @@ class TestBaseModel(unittest.TestCase):
         """Test assignment of UUID is converted to string"""
         a = BaseModel()
         self.assertIsInstance(a.id, str)
+
+    def test_unique_id(self):
+        """ Test if id's are unique """
+        a = BaseModel()
+        b = BaseModel()
+        self.assertIsNot(a, b)
     
     def test_created_at(self):
         """Test that datetime is assigned when new instance of BaseModel is created"""
         a = BaseModel()
         self.assertTrue(hasattr(a, "created_at"))
+        self.assertEqual(type(a.created_at), datetime)
 
     def test_save(self):
         """Test that save() saves datetime"""
         a = BaseModel()
         self.assertTrue(hasattr(a, "updated_at"))
+        self.assertEqual(type(a.updated_at), datetime)
 
     def test_updated_at_updates(self):
         """Test that save() updates datetime"""
