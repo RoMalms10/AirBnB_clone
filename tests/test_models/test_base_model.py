@@ -29,7 +29,7 @@ class TestBaseModel(unittest.TestCase):
         a = BaseModel()
         b = BaseModel()
         self.assertIsNot(a, b)
-    
+
     def test_created_at(self):
         """Test that datetime is assigned when new instance of BaseModel
         is created"""
