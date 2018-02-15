@@ -6,17 +6,18 @@
 ### From the command line run ./console.py or echo "help" | ./console.py
 ## Usage
 ### Included with the basic interpreter are console commands EOF, quit, help, create, destroy, update, show, and all.
+
 Command | Syntax | Output
 ------- | ------ | ------
-help | help | list of all available commands
-     | quit help | text of what quit command does (works for all commands)
+help | help *[option]* | list of all available commands, or displays what option does
 quit | quit | exit command interpreter
 EOF | EOF | exit command interpreter
-create | create [class_name] | creates an instance of class_name
-update | update [class_name] [object_id] [update_key] [update_value] | updates the key:value of class_name.object_id instance
-show | show [class_name] [object_id] | displays all attributes of class_name.object_id
-all | all [class_name] | displays every instance of class_name, without option displays every instance saved to file
-destroy | destroy [class_name] [object_id] | deletes all attributes of class_name.object_id
+create | create *[class_name]* | creates an instance of class_name
+update | update *[class_name] [object_id] [update_key] [update_value]* | updates the key:value of class_name.object_id instance
+show | show *[class_name] [object_id]* | displays all attributes of class_name.object_id
+all | all *[class_name]* | displays every instance of class_name, without option displays every instance saved to file
+destroy | destroy *[class_name] [object_id]* | deletes all attributes of class_name.object_id
+
 ## Examples
 ```python3
 (hbnb) help
