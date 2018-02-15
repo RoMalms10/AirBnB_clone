@@ -50,8 +50,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(type(a.created_at), str)
         self.assertTrue(type(a.updated_at), str)
 
-    def test_model_from_dict(self):
-        """Test of recreation of an instance with a dict representation"""
+    def test_from_kwargs(self):
+        """Test of recreation of an instance with kwargs"""
         test_dict = {'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337',
                      'created_at': '2017-09-28T21:05:54.119427',
                      'my_number': 89, 'updated_at': '2017-09-28T21:05:54.119572',
