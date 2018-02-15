@@ -30,7 +30,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNot(a, b)
     
     def test_created_at(self):
-        """Test that datetime is assigned when new instance of BaseModel is created"""
+        """Test that datetime is assigned when new instance of BaseModel
+        is created"""
         a = BaseModel()
         self.assertTrue(hasattr(a, "created_at"))
         self.assertEqual(type(a.created_at), datetime)
@@ -62,20 +63,23 @@ class TestBaseModel(unittest.TestCase):
         """Test of recreation of an instance with kwargs"""
         test_dict = {'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337',
                      'created_at': '2017-09-28T21:05:54.119427',
-                     'my_number': 89, 'updated_at': '2017-09-28T21:05:54.119572',
+                     'my_number': 89,
+                     'updated_at': '2017-09-28T21:05:54.119572',
                      'name': 'Holberton'}
         my_new_model = BaseModel(**test_dict)
         self.assertEqual(my_new_model.id, test_dict.get('id'))
         self.assertEqual(my_new_model.name, test_dict.get('name'))
-        self.assertEqual(my_new_model.created_at.isoformat(), test_dict.get('created_at'))
-        self.assertEqual(my_new_model.updated_at.isoformat(), test_dict.get('updated_at'))
+        self.assertEqual(my_new_model.created_at.isoformat(),
+                         test_dict.get('created_at'))
+        self.assertEqual(my_new_model.updated_at.isoformat(),
+                         test_dict.get('updated_at'))
         self.assertEqual(my_new_model.my_number, test_dict.get('my_number'))
 
     def test_str_output(self):
         """Test that a string representation is returned"""
         a = BaseModel()
         expected = "[{}] ({}) {}".format(a.__class__.__name__,
-                                        a.id, a.__dict__)
+                                         a.id, a.__dict__)
         captured = io.StringIO()
         sys.stdout = captured
         print(a, end="")
