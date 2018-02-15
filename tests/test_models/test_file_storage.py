@@ -18,18 +18,9 @@ class TestFileStorage(unittest.TestCase):
         a = FileStorage()
         self.assertIs(type(a), FileStorage)
 
-    def test_all(self):
-        """Test that all() returns all objects"""
-        a = FileStorage()
-
-    def test_new(self):
-        """Test that new() adds new object to current objects"""
-        a = FileStorage()
-
-    def test_save(self):
-        """Test that save() saves all objects to a JSON file"""
-        a = FileStorage()
-
     def test_reload(self):
         """Test that reload() reloads the JSON from file"""
-        a = FileStorage()
+        test_object = {'__class__': 'FileStorage', 'id': 89, 'name': 'test'}
+        FileStorage.new(self, test_object)
+        FileStorage.save()
+        self.assertEqual(FileStorage.all(), test_object)
