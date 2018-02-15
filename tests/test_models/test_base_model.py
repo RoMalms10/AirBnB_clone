@@ -26,21 +26,12 @@ class TestBaseModel(unittest.TestCase):
     def test_created_at(self):
         """Test that datetime is assigned when new instance of BaseModel is created"""
         a = BaseModel()
-        self.assertIsNotNone(a.created_at)
+        self.assertTrue(hasattr(a, "created_at"))
 
-    def test_save(self):
+    def test_updated_at(self):
         """Test that save() saves datetime"""
         a = BaseModel()
-        self.assertIsNotNone(a.updated_at)
-
-        """def test__str__(self):
-        Test that a string representation is returned
-        a = BaseModel()
-        capturedOutput = io.StringIO()
-        print(a)
-        sys.stdout = capturedOutput
-        expected = [a.__class__.name] (<a.id>) <self.__dict__>
-        self.assertEqual(capturedOutput.getvalue(), expected)"""
+        self.assertTrue(hasattr(a, "updated_at"))
 
     def test_to_dict(self):
         """Test that to_dict() returns a dictionary containing all
