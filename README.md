@@ -5,6 +5,5 @@
 ## How to start the interpreter
 ### From the command line run ./console.py or echo "help" | ./console.py
 ## Usage
-### The command interpreter can handle common shell commands such as ls, cat, echo, et. al.
 ### Included with the basic interpreter are console commands EOF, quit, and help. EOF and quit are used to exit the interpreter and help is used to lookup what a command does or to print a list of included commands.
 ## Examples of Usage
