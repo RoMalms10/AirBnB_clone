@@ -1,4 +1,4 @@
-# Readme
+# Airbnb Clone - The Command Interpreter
 ![Image of Holberton B&B Logo](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/263/HBTN-hbnb-Final.png)
 ## Airbnb Clone - Command Interpreter Project Description
 ### This is a multi-part project which will result in a complete clone of the Airbnb website, both front-end and back-end. For this part of the project using Python programming language, we will build a command interpreter for the cloned web app. A command interpreter is very similar to the BASH shell, but designed for a specific use case.
@@ -35,22 +35,47 @@ Quit command to exit the program
 (hbnb) create User
 1083ad5b-d1f5-4273-a13e-f83651c24cca
 (hbnb) show User 1083ad5b-d1f5-4273-a13e-f83651c24cca
-[User] (1083ad5b-d1f5-4273-a13e-f83651c24cca) {'created_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'id': '1083ad5b-d1f5-4273-a13e-f83651c24cca', 'updated_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164468)}
+[User] (1083ad5b-d1f5-4273-a13e-f83651c24cca) {'created_at':
+datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'id':
+'1083ad5b-d1f5-4273-a13e-f83651c24cca', 'updated_at':
+datetime.datetime(2018, 2, 15, 23, 31, 2, 164468)}
 (hbnb) update User 1083ad5b-d1f5-4273-a13e-f83651c24cca 'name' 'Shannon'
 (hbnb) show User 1083ad5b-d1f5-4273-a13e-f83651c24cca
-[User] (1083ad5b-d1f5-4273-a13e-f83651c24cca) {'name': 'Shannon', 'created_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'updated_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164468), 'id': '1083ad5b-d1f5-4273-a13e-f83651c24cca'}
+[User] (1083ad5b-d1f5-4273-a13e-f83651c24cca) {'name': 'Shannon', 'created_at':
+datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'updated_at':
+datetime.datetime(2018, 2, 15, 23, 31, 2, 164468), 'id':
+'1083ad5b-d1f5-4273-a13e-f83651c24cca'}
 (hbnb) create Place
 a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d
 (hbnb) show Place a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d
-[Place] (a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d) {'created_at': datetime.datetime(2018, 2, 15, 23, 32, 14, 428503), 'id': 'a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d', 'updated_at': datetime.datetime(2018, 2, 15, 23, 32, 14, 428507)}
+[Place] (a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d) {'created_at':
+datetime.datetime(2018, 2, 15, 23, 32, 14, 428503), 'id':
+'a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d', 'updated_at':
+datetime.datetime(2018, 2, 15, 23, 32, 14, 428507)}
 (hbnb) all
-[[Place] (a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d) {'created_at': datetime.datetime(2018, 2, 15, 23, 32, 14, 428503), 'id': 'a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d', 'updated_at': datetime.datetime(2018, 2, 15, 23, 32, 14, 428507)}, [User] (1083ad5b-d1f5-4273-a13e-f83651c24cca) {'name': 'Shannon', 'created_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'updated_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164468), 'id': '1083ad5b-d1f5-4273-a13e-f83651c24cca'}]
+[[Place] (a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d) {'created_at':
+datetime.datetime(2018, 2, 15, 23, 32, 14, 428503), 'id':
+'a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d', 'updated_at':
+datetime.datetime(2018, 2, 15, 23, 32, 14, 428507)}, [User]
+(1083ad5b-d1f5-4273-a13e-f83651c24cca) {'name': 'Shannon', 'created_at':
+datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'updated_at':
+datetime.datetime(2018, 2, 15, 23, 31, 2, 164468), 'id':
+'1083ad5b-d1f5-4273-a13e-f83651c24cca'}]
 (hbnb) all User
-[[User] (1083ad5b-d1f5-4273-a13e-f83651c24cca) {'name': 'Shannon', 'created_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'updated_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164468), 'id': '1083ad5b-d1f5-4273-a13e-f83651c24cca'}]
+[[User] (1083ad5b-d1f5-4273-a13e-f83651c24cca) {'name': 'Shannon',
+'created_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'updated_at':
+datetime.datetime(2018, 2, 15, 23, 31, 2, 164468), 'id':
+'1083ad5b-d1f5-4273-a13e-f83651c24cca'}]
 (hbnb) all Place
-[[Place] (a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d) {'created_at': datetime.datetime(2018, 2, 15, 23, 32, 14, 428503), 'id': 'a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d', 'updated_at': datetime.datetime(2018, 2, 15, 23, 32, 14, 428507)}]
+[[Place] (a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d) {'created_at':
+datetime.datetime(2018, 2, 15, 23, 32, 14, 428503), 'id':
+'a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d', 'updated_at':
+datetime.datetime(2018, 2, 15, 23, 32, 14, 428507)}]
 (hbnb) destroy Place a2e97dbb-b4ea-4014-b4a2-82b3b72aa52d
 (hbnb) all
-[[User] (1083ad5b-d1f5-4273-a13e-f83651c24cca) {'name': 'Shannon', 'created_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'updated_at': datetime.datetime(2018, 2, 15, 23, 31, 2, 164468), 'id': '1083ad5b-d1f5-4273-a13e-f83651c24cca'}]
+[[User] (1083ad5b-d1f5-4273-a13e-f83651c24cca) {'name': 'Shannon', 'created_at':
+datetime.datetime(2018, 2, 15, 23, 31, 2, 164460), 'updated_at':
+datetime.datetime(2018, 2, 15, 23, 31, 2, 164468), 'id':
+'1083ad5b-d1f5-4273-a13e-f83651c24cca'}]
 (hbnb)
 ```
