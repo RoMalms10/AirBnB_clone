@@ -22,6 +22,7 @@ class TestBaseModel(unittest.TestCase):
         """Test assignment of UUID is converted to string"""
         a = BaseModel()
         self.assertIsInstance(a.id, str)
+        self.assertEqual(36, len(a.id))
 
     def test_unique_id(self):
         """ Test if id's are unique """
@@ -64,6 +65,7 @@ class TestBaseModel(unittest.TestCase):
         test_dict = {'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337',
                      'created_at': '2017-09-28T21:05:54.119427',
                      'my_number': 89,
+                     '__class__': 'BaseModel',
                      'updated_at': '2017-09-28T21:05:54.119572',
                      'name': 'Holberton'}
         my_new_model = BaseModel(**test_dict)
