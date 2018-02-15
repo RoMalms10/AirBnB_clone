@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """A module that loads storage"""
 
 from models.engine.file_storage import FileStorage
