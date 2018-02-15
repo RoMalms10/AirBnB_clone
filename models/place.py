@@ -8,7 +8,6 @@ class Place(BaseModel):
     """ Class Place that inherits from BaseModel
     Attributes:
         city_id (string of City.id)
-        
     """
     city_id = ""
     user_id = ""

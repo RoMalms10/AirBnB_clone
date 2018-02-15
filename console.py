@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
         """ Prints string representation of instance based on name and id """
         arg = shlex.split(arg)
         if len(arg) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif arg[0] not in models.class_dict:
             print("** class doesn't exist **")
         elif len(arg) == 1:
@@ -55,7 +55,7 @@ class HBNBCommand(cmd.Cmd):
         """ Destroys an instance based off name and id """
         arg = shlex.split(arg)
         if len(arg) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
         elif arg[0] not in models.class_dict:
             print("** class doesn't exist **")
         elif len(arg) == 1:
