@@ -28,10 +28,18 @@ class TestBaseModel(unittest.TestCase):
         a = BaseModel()
         self.assertTrue(hasattr(a, "created_at"))
 
-    def test_updated_at(self):
+    def test_save(self):
         """Test that save() saves datetime"""
         a = BaseModel()
         self.assertTrue(hasattr(a, "updated_at"))
+
+    def test_updated_at_updates(self):
+        """Test that save() updates datetime"""
+        a = BaseModel()
+        a_time = getattr(a, "updated_at")
+        a.save()
+        a_updated = getattr(a, "updated_at")
+        self.assertNotEqual(a_time, a_updated)
 
     def test_to_dict(self):
         """Test that to_dict() returns a dictionary containing all
@@ -48,3 +56,13 @@ class TestBaseModel(unittest.TestCase):
                      'name': 'Holberton'}
         my_new_model = BaseModel(**test_dict)
         self.assertEqual(my_new_model.id, test_dict.get('id'))
+
+    def test_str_output(self):
+        """Test that a string representation is returned"""
+        a = BaseModel()
+        expected = "[{}] ({}) {}".format(a.__class__.__name__,
+                                        a.id, a.__dict__)
+        captured = io.StringIO()
+        sys.stdout = captured
+        print(a, end="")
+        self.assertEqual(captured.getvalue(), expected)
