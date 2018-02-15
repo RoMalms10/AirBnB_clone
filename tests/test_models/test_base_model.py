@@ -53,11 +53,15 @@ class TestBaseModel(unittest.TestCase):
     def test_model_from_dict(self):
         """Test of recreation of an instance with a dict representation"""
         test_dict = {'id': '56d43177-cc5f-4d6c-a0c1-e167f8c27337',
-                     'created_at': '2017-09-28T21:03:54.052298',
-                     'my_number': 89, 'updated_at': '2017-09-28T21:03:54.052302',
+                     'created_at': '2017-09-28T21:05:54.119427',
+                     'my_number': 89, 'updated_at': '2017-09-28T21:05:54.119572',
                      'name': 'Holberton'}
         my_new_model = BaseModel(**test_dict)
         self.assertEqual(my_new_model.id, test_dict.get('id'))
+        self.assertEqual(my_new_model.name, test_dict.get('name'))
+        self.assertEqual(my_new_model.created_at.isoformat(), test_dict.get('created_at'))
+        self.assertEqual(my_new_model.updated_at.isoformat(), test_dict.get('updated_at'))
+        self.assertEqual(my_new_model.my_number, test_dict.get('my_number'))
 
     def test_str_output(self):
         """Test that a string representation is returned"""
