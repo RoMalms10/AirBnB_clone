@@ -47,6 +47,8 @@ class TestBaseModel(unittest.TestCase):
         a = BaseModel()
         self.assertIsNotNone(a.to_dict())
         self.assertIsInstance(a.to_dict(), dict)
+        self.assertTrue(type(a.created_at), str)
+        self.assertTrue(type(a.updated_at), str)
 
     def test_model_from_dict(self):
         """Test of recreation of an instance with a dict representation"""
