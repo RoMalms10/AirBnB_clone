@@ -24,7 +24,7 @@ destroy | destroy *[class_name] [object_id]* | deletes all attributes of class_n
 
 Documented commands (type help <topic>):
 ========================================
-EOF  help  quit
+EOF  all  create  destroy  help  quit  show  update
 
 (hbnb) 
 (hbnb) help quit
