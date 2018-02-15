@@ -43,3 +43,15 @@ class TestUser(unittest.TestCase):
     def test_user_email(self):
         """ """
         self.assertEqual(self.a.email, "")
+
+    def test_user_password(self):
+        """ """
+        self.assertEqual(self.a.password, "")
+
+    def test_user_first_name(self):
+        """ """
+        self.assertEqual(self.a.first_name, "")
+
+    def test_user_last_name(self):
+        """ """
+        self.assertEqual(self.a.last_name, "")
