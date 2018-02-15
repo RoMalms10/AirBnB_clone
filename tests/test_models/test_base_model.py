@@ -56,9 +56,13 @@ class TestBaseModel(unittest.TestCase):
         keys/values of __dict__ of an instance"""
         a = BaseModel()
         self.assertIsNotNone(a.to_dict())
-        self.assertIsInstance(a.to_dict(), dict)
         self.assertTrue(type(a.created_at), str)
         self.assertTrue(type(a.updated_at), str)
+        self.assertEqual(type(a.to_dict()), dict)
+        self.assertNotEqual(a.to_dict().get('id'), None)
+        self.assertNotEqual(a.to_dict().get('created_at'), None)
+        self.assertNotEqual(a.to_dict().get('updated_at'), None)
+        self.assertEqual(a.to_dict().get('__class__'), 'BaseModel')
 
     def test_from_kwargs(self):
         """Test of recreation of an instance with kwargs"""
