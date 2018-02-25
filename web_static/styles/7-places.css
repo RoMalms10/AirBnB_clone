@@ -16,7 +16,7 @@
   font-size: 30px;
 }
 
-.article {
+article {
   display: flex;
   justify-content: center;
   item-align: center;
