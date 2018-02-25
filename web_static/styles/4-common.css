@@ -14,6 +14,8 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
+  justify-contents: center;
   width: 100%;
   max-width: 1000px;
   margin-top: 30px;
